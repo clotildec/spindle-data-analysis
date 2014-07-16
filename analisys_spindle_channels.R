@@ -29,13 +29,14 @@ data$dist_right_pole_to_edge <- ((data$right_edge_x - data$right_pole_x)
 
 data$cell_length <- (data$right_edge_x - data$left_edge_x) * spatial_resolution
 data$spindle_ratio_asymmetry <- ifelse(right_sp_centre_to_edge > left_sp_centre_to_edge,
-                                       right_sp_centre_to_edge / left_sp_centre_to_edge,
-                                       left_sp_centre_to_edge / right_sp_centre_to_edge)
+                                      (right_sp_centre_to_edge / left_sp_centre_to_edge - 1) * 100,
+                                      (left_sp_centre_to_edge / right_sp_centre_to_edge - 1) * 100)
 # the spindle asymmetry is calculated as the ratio between two distances:
 # the longest distance between the spindle center and the cell edge, over 
 # the shortest distance between the spindle center and the cell edge. 
 # These distances are only considered on the horizontal axis
   
 data$spindle_diff_asymmetry <- left_sp_centre_to_edge - right_sp_centre_to_edge
+# add comments and modify definition
 
-write.csv(data, 'write_test.csv')
+#write.csv(data, 'write_test.csv')
