@@ -2,7 +2,7 @@ cross_section <- 98 # µm^2 area of channels
 temporal_resolution <- 3 # minutes
 spatial_resolution <- 0.645 # µm/pixel
 
-data <- read.csv('/Users/andimi/Desktop/FromClotilde/140619-HeLa-HCTG-Channels98-analyse140715-15cells.csv', header = TRUE)
+data <- read.csv('/Users/andimi/Desktop/FromClotilde/140627-HeLa-HCTG-MCAKRNAi-Channels98_analyse_140715_15cells.csv', header = TRUE)
 
 spindle_delta_x <- (data$right_pole_x - data$left_pole_x) * spatial_resolution
 spindle_delta_y <- (data$right_pole_y - data$left_pole_y) * spatial_resolution
