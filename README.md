@@ -13,14 +13,8 @@ Here is a description of the different fields:
 * cell\_number is an integer used to distinguish different cells in the same .csv file
 * ID is a unique string identifying the cell
 * frame is the frame number for time-lapse movies
-* left\_edge\_x is the x coordinate of the cell left edge
-* left\_edge\_y is the y coordinate of the cell left edge
-* left\_pole\_x is the x coordinate of the spindle left pole
-* left\_pole\_y is the y coordinate of the spindle left pole
-* right\_pole\_x is the x coordinate of the spindle right pole
-* right\_pole\_y is the y coordinate of the spindle right pole
-* right\_edge\_x is the x coordinate of the cell right edge
-* right\_edge\_y is the y coordinate of the cell right edge
+* left/right\_edge\_x/y is the x/y coordinate of the cell left/right edge
+* left/right\_pole\_x/y is the x/y coordinate of the spindle left/right pole
 
 ### PROCESSING
 
@@ -28,7 +22,6 @@ The script processes the input in order to obtain the following:
 * spindle\_length -> the euclidian distance between the two spindle poles
 * spindle\_angle -> calculated in degrees as the angle between the horizontal axis and the vector pointing from the left spindle pole to the right pole, thus for positive angles the right pole points upwards and for negative angles it points downwards
 * cell length -> the distance on the x-axis between the two cell extremities
-* dist\_left\_pole\_to\_edge -> the distance on the x-axis between the spindle left pole and the left cell edge
-* dist\_right\_pole\_to\_edge -> the distance on the x-axis between the spindle right pole and the right cell edge
+* dist\_left/right\_pole\_to\_edge -> the distance on the x-axis between the spindle left/right pole and the left/right cell edge
 * spindle\_ratio\_asymmetry -> calculated as the ratio between two distances on the x-axis: the longest distance between the spindle center and the cell edge, divided by the shortest distance between the spindle center and the cell edge. Then the asymmetry is normalised and given in percentage (no upper bound)
 * spindle\_diff\_asymmetry -> calculated as the difference on the x-axis between the longest distance from the spindle center to the cell edge and the shortest distance between the spindle center and the cell edge. Then the asymmetry is normalised by its maximum value and given in percentage (between 0 and 100%)
