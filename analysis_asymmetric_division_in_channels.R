@@ -34,25 +34,8 @@ spatial_resolution <- 0.645 # µm/pixel
 data <- read.csv('/Users/andimi/Desktop/FromClotilde/140627-HeLa-HCTG-MCAKRNAi-Channels98_analyse_140715_15cells.csv', header = TRUE)
 
 source("calculate_spindle_parameters.R")
-data <- add_spindle_parameters(data)
-
-right_sp_centre_to_edge <- ((data$right_edge_x - data$spindle_centre_x)
-                       * spatial_resolution)
-left_sp_centre_to_edge <- ((data$spindle_centre_x - data$left_edge_x)
-                      * spatial_resolution)
-
-data$dist_left_pole_to_edge <- ((data$left_pole_x - data$left_edge_x)
-                                * spatial_resolution)
-data$dist_right_pole_to_edge <- ((data$right_edge_x - data$right_pole_x)
-                                * spatial_resolution)
-data$cell_length <- (data$right_edge_x - data$left_edge_x) * spatial_resolution
-
-data$spindle_ratio_asymmetry <- ifelse(right_sp_centre_to_edge > left_sp_centre_to_edge,
-                                      (right_sp_centre_to_edge / left_sp_centre_to_edge - 1) * 100,
-                                      (left_sp_centre_to_edge / right_sp_centre_to_edge - 1) * 100)
-
-data$spindle_diff_asymmetry <- (abs(left_sp_centre_to_edge - right_sp_centre_to_edge) /
-                                   (data$cell_length - data$spindle_length) * 100)
+data <- add_spindle_parameters(data, spatial_resolution)
+data <- add_cell_parameters(data, spatial_resolution)
 
 #write.csv(data, 'write_test.csv')
 head(data)
