@@ -1,0 +1,6 @@
+path, condition
+~/Desktop/FromClo140826/140619-HeLa-HCTG-Channels98-analyse140715-15cells.csv, noTreatment
+~/Desktop/FromClo140826/140625-HeLa-HCTG-channels98-DMSO-analysis140827-15cells.csv, DMSO
+~/Desktop/FromClo140826/140625-HeLa-HCTG-channels98-Taxol-analysis140723-15cells.csv, Taxol
+~/Desktop/FromClo140826/140724-HeLa-HCTG-channels98-OFFTARGET-analysis-140818-18cells.csv, control_RNAi
+~/Desktop/FromClo140826/140724-HeLa-HCTG-channels98-MCAKRNAI-analysis-140818-18cells.csv, MCAK_RNAi
