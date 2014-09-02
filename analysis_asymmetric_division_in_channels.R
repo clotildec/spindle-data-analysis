@@ -33,17 +33,14 @@ spatial_resolution <- 0.645 # µm/pixel
 
 data <- read.csv('/Users/andimi/Desktop/FromClotilde/140627-HeLa-HCTG-MCAKRNAi-Channels98_analyse_140715_15cells.csv', header = TRUE)
 
-spindle_delta_x <- (data$right_pole_x - data$left_pole_x) * spatial_resolution
-spindle_delta_y <- (data$right_pole_y - data$left_pole_y) * spatial_resolution
-spindle_centre_x <- (data$left_pole_x + data$right_pole_x) / 2
-spindle_centre_y <- (data$left_pole_y + data$right_pole_y) / 2
-right_sp_centre_to_edge <- ((data$right_edge_x - spindle_centre_x)
+source("calculate_spindle_parameters.R")
+data <- add_spindle_parameters(data)
+
+right_sp_centre_to_edge <- ((data$right_edge_x - data$spindle_centre_x)
                        * spatial_resolution)
-left_sp_centre_to_edge <- ((spindle_centre_x - data$left_edge_x)
+left_sp_centre_to_edge <- ((data$spindle_centre_x - data$left_edge_x)
                       * spatial_resolution)
 
-data$spindle_length <- sqrt(spindle_delta_x ^ 2 + spindle_delta_y ^ 2)
-data$spindle_angle <- atan2(spindle_delta_y, spindle_delta_x) * 180 / pi
 data$dist_left_pole_to_edge <- ((data$left_pole_x - data$left_edge_x)
                                 * spatial_resolution)
 data$dist_right_pole_to_edge <- ((data$right_edge_x - data$right_pole_x)
@@ -58,4 +55,4 @@ data$spindle_diff_asymmetry <- (abs(left_sp_centre_to_edge - right_sp_centre_to_
                                    (data$cell_length - data$spindle_length) * 100)
 
 #write.csv(data, 'write_test.csv')
-#head(data)
+head(data)
