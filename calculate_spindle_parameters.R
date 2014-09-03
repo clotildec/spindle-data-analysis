@@ -52,3 +52,17 @@ add_cell_parameters <- function(data, spatial_resolution){
                                    (data$cell_length - data$spindle_length) * 100)
     return(data)
 }
+
+# FUNCTION add_cell_parameters
+# INPUT
+# This function takes a path for a csv file containing the inputs expected by add_spindle_parameters, then calculates both the spindle and cell parameters for those data
+# OUTPUT
+# The output of the function is a data frame containing all the spindle and cell parameters
+
+add_spindle_cell_parameters <- function(path, condition = 'control', spatial_resolution = 1){
+    tmp_data <- read.csv(path, header = TRUE)
+    tmp_data$condition <- condition
+    tmp_data <- add_spindle_parameters(tmp_data, spatial_resolution)
+    tmp_data <- add_cell_parameters(tmp_data, spatial_resolution)
+    return(tmp_data)
+}
