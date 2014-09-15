@@ -1,5 +1,4 @@
 # Spindle Positioning Analysis for cells in microfabricated channels
-
 This script is used to analyse spindle positioning in cells confined in channels. It takes a *.csv* file with cell edge and spindle pole coordinates and calculates spindle length, angle and asymmetry with respect to the cell.
 
 ## analysis\_asymmetric\_division\_in\_channels.R
